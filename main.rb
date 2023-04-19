@@ -29,18 +29,25 @@ class Mreza
 
   end
 
-  class elementIgre
+  class ElementIgre
     def initialize(x,y)
         @x = x
         @y = y
     end
   end
 
-  class Krog < elementIgre
+  class Krog < ElementIgre
   end
 
-  class Kriz < elementIgre
+  class Kriz < ElementIgre
   end
 
   igra_ena = Mreza.new()
-  igra_ena.izrisi_mrezo()
+
+nadaljuj = true
+x = 0
+y = 0
+while(nadaljuj)
+
+    igra_ena.izrisi_mrezo()
+end
