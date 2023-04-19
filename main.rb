@@ -29,18 +29,17 @@ class Mreza
 
   end
 
-  class Krog < Mreza
+  class elementIgre
     def initialize(x,y)
         @x = x
         @y = y
     end
   end
 
-  class Kriz < Mreza
-    def initialize(x,y)
-        @x = x
-        @y = y
-    end
+  class Krog < elementIgre
+  end
+
+  class Kriz < elementIgre
   end
 
   igra_ena = Mreza.new()
