@@ -1,8 +1,8 @@
 class Mreza
-    def initialize(x, y)
+    def initialize()
+      @mreza_array = Array.new(3) { Array.new(3) { 0 } }
       @x = 0
       @y = 0
-      @mreza_array = Array.new(3) { Array.new(3) { 0 } }
     end
 
     def izrisi_mrezo
@@ -22,16 +22,26 @@ class Mreza
       end
     end
 
-    def vpisi_v_mrezo(self)
+    def vnesi_igrano(x,y)
+        self.instance_of? == Kriz ?  @mreza_array[x][y] = -1 : @mreza_array[x][y] = 1
+
     end
 
   end
 
   class Krog < Mreza
+    def initialize(x,y)
+        @x = x
+        @y = y
+    end
   end
 
   class Kriz < Mreza
+    def initialize(x,y)
+        @x = x
+        @y = y
+    end
   end
 
-  igra_ena = Mreza.new(0, 0)
+  igra_ena = Mreza.new()
   igra_ena.izrisi_mrezo()
