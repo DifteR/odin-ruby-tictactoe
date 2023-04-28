@@ -39,13 +39,16 @@ class Mreza
       end
     end
 
-    def najdi_zmagovalca
-      @mreza_array
+    def najdi_zmagovalca_vertikalno(vrstica)
+      if @mreza_array[vrstica][1] == @mreza_array[vrstica][0] && @mreza_array[vrstica][1] == @mreza_array[vrstica][2]
+        if @mreza_array[vrstica][1] == 1
+          print "X zmaga!"
+        end
+      end
     end
 
     def vnesi_igrano(bla)
       bla.class == Kriz ?  @mreza_array[bla.x][bla.y] = 1 : @mreza_array[bla.x][bla.y] = -1
-      puts bla.x.class
     end
 
   end
@@ -96,5 +99,6 @@ while(i<9)
 
     igra_ena.vnesi_igrano(play_array[i])
     igra_ena.izrisi_mrezo()
+    igra_ena.najdi_zmagovalca_vertikalno(0)
     i += 1
 end
