@@ -67,9 +67,9 @@ while(i<9)
       x = gets.chomp.to_i
       puts "Na vrsti je krog. Vnesite koordinat y"
       y = gets.chomp.to_i
-      play_array[i] = Kriz.new(x,y)
+      play_array[i] = Krog.new(x,y)
       if ElementIgre.validateInput(play_array[i])
-        play_array[i] = Kriz.new(x,y)
+        play_array[i] = Krog.new(x,y)
       else
         i = 10
         puts "NAPAKA!!!"
@@ -80,9 +80,9 @@ while(i<9)
       x = gets.chomp.to_i
       puts "Na vrsti je križec. Vnesite koordinat y"
       y = gets.chomp.to_i
-      play_array[i] = Krog.new(x,y)
+      play_array[i] = Kriz.new(x,y)
       if ElementIgre.validateInput(play_array[i])
-        play_array[i] = Krog.new(x,y)
+        play_array[i] = Kriz.new(x,y)
       else
         i = 10
         puts "NAPAKA!!!"
