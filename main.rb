@@ -39,6 +39,10 @@ class Mreza
       end
     end
 
+    def najdi_zmagovalca
+      @mreza_array
+    end
+
     def vnesi_igrano(bla)
       bla.class == Kriz ?  @mreza_array[bla.x][bla.y] = 1 : @mreza_array[bla.x][bla.y] = -1
       puts bla.x.class
