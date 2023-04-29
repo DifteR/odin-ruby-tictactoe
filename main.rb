@@ -81,10 +81,10 @@ class Mreza
         elsif @mreza_array[1][1] == -1
           puts "Zmaga Krog"
           return -1
-        else
-          return 0
         end
+        
       end
+      return 0
     end
 
     def vnesi_igrano(bla)
