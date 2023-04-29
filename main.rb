@@ -56,6 +56,23 @@ class Mreza
       end
     end
 
+    def najdi_zmagovalca_horizontalno()
+      stolpec = 0
+      while(stolpec<3)
+          if @mreza_array[1][stolpec] == @mreza_array[0][stolpec] && @mreza_array[1][stolpec] == @mreza_array[2][stolpec]
+            if @mreza_array[1][stolpec] == 1
+              puts "Zmaga Križ"
+              return 1
+            elsif @mreza_array[1][stolpec] == -1
+              puts "Zmaga Krog"
+              return -1
+            end
+          else return 0
+          end
+          vrstica += 1
+      end
+    end
+
     def vnesi_igrano(bla)
       bla.class == Kriz ?  @mreza_array[bla.x][bla.y] = 1 : @mreza_array[bla.x][bla.y] = -1
     end
@@ -108,6 +125,10 @@ while(i<9 && zmagovalec == 0)
 
     igra_ena.vnesi_igrano(play_array[i])
     igra_ena.izrisi_mrezo()
-    zmagovalec = igra_ena.najdi_zmagovalca_vertikalno()
+    if(igra_ena.najdi_zmagovalca_horizontalno != 0)
+      zmagovalec = igra_ena.najdi_zmagovalca_horizontalno
+    elsif(igra_ena.najdi_zmagovalca_vertikalno != 0)
+      zmagovalec = igra_ena.najdi_zmagovalca_vertikalno
+    end
     i += 1
 end
