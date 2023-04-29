@@ -39,11 +39,20 @@ class Mreza
       end
     end
 
-    def najdi_zmagovalca_vertikalno(vrstica)
-      if @mreza_array[vrstica][1] == @mreza_array[vrstica][0] && @mreza_array[vrstica][1] == @mreza_array[vrstica][2]
-        if @mreza_array[vrstica][1] == 1
-          print "X zmaga!"
-        end
+    def najdi_zmagovalca_vertikalno()
+      vrstica = 0
+      while(vrstica<3)
+          if @mreza_array[vrstica][1] == @mreza_array[vrstica][0] && @mreza_array[vrstica][1] == @mreza_array[vrstica][2]
+            if @mreza_array[vrstica][1] == 1
+              puts "Zmaga Križ"
+              return 1
+            elsif @mreza_array[vrstica][1] == -1
+              puts "Zmaga Krog"
+              return -1
+            end
+          else return 0
+          end
+          vrstica += 1
       end
     end
 
@@ -63,12 +72,12 @@ class Mreza
 
   igra_ena = Mreza.new()
 
-nadaljuj = true
+zmagovalec = 0
 x = 0
 y = 0
 i = 0
 play_array = Array.new()
-while(i<9)
+while(i<9 && zmagovalec == 0)
     if i % 2 == 0
       puts "Na vrsti je krog. Vnesite koordinat x"
       x = gets.chomp.to_i
@@ -99,6 +108,6 @@ while(i<9)
 
     igra_ena.vnesi_igrano(play_array[i])
     igra_ena.izrisi_mrezo()
-    igra_ena.najdi_zmagovalca_vertikalno(0)
+    zmagovalec = igra_ena.najdi_zmagovalca_vertikalno()
     i += 1
 end
