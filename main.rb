@@ -5,21 +5,30 @@ class ElementIgre
       @y = y
   end
 
-  def self.validateInput(igrano)
+
+class Mreza
+
+  def validateInput(igrano)
     puts igrano
-    if igrano.x.is_a?(Integer) && igrano.x < 3 && igrano.y < 3 && igrano.x >= 0 && igrano.y >= 0# && igrano.x.class = Integer && igrano.y.class = Integer
+    if igrano.x.is_a?(Integer) && igrano.x < 3 && igrano.y < 3 && igrano.x >= 0 && igrano.y >= 0 && je_prosto?(igrano.x,igrano.y)
       return true
     else return false
     end
-
   end
-end
-class Mreza
+
   attr_writer :mreza_array
     def initialize()
       @mreza_array = Array.new(3) { Array.new(3) { 0 } }
       @x = 0
       @y = 0
+    end
+
+    def je_prosto?(x,y)
+      if @mreza_array[x][y] == -1 || @mreza_array[x][y] == 1
+        return false
+      else
+        return true
+      end
     end
 
     def izrisi_mrezo
@@ -82,7 +91,7 @@ class Mreza
           puts "Zmaga Krog"
           return -1
         end
-        
+
       end
       return 0
     end
@@ -115,7 +124,7 @@ while(i<9 && zmagovalec == 0)
       puts "Na vrsti je krog. Vnesite koordinat y"
       y = gets.chomp.to_i
       play_array[i] = Krog.new(x,y)
-      if ElementIgre.validateInput(play_array[i])
+      if igra_ena.validateInput(play_array[i])
         play_array[i] = Krog.new(x,y)
       else
         i = 10
@@ -128,7 +137,7 @@ while(i<9 && zmagovalec == 0)
       puts "Na vrsti je križec. Vnesite koordinat y"
       y = gets.chomp.to_i
       play_array[i] = Kriz.new(x,y)
-      if ElementIgre.validateInput(play_array[i])
+      if igra_ena.validateInput(play_array[i])
         play_array[i] = Kriz.new(x,y)
       else
         i = 10
@@ -148,4 +157,5 @@ while(i<9 && zmagovalec == 0)
     end
     i += 1
     p zmagovalec
+  end
 end
